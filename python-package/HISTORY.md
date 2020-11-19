@@ -7,12 +7,19 @@ Unreleased
 -- see the [milestone tracking at github](https://github.com/k4cg/nichtparasoup/milestone/2).
 
 * Changes
-  * API supports HTTP method "GET" only. Did support all HTTP methods in the past. 
+  * Web-API supports HTTP method "GET" only. Did support all HTTP methods in the past.
+  * Property `nichtparasoup.core.Crawler.weight` got getter & setter to reflect value constraints.
+  * Method `nichtparasoup.core.Crawler.set_is_image_addable()` no longer supports `None` values. Use deleter therefore.
+  * Method `nichtparasoup.core.Crawler.set_image_added()` no longer supports `None` values. Use deleter therefore.
 * Added
   * New method `nichtparasoup.server.has_image() -> bool`.
+  * New Property `nichtparasoup.core.Crawler.is_image_addable` with getter, setter, deleter.
+  * New property `nichtparasoup.core.Crawler.image_added` with getter, setter, deleter.
 * Fixes
   * API `/get` no longer responds false "404 EXHAUSTED" HTTP Status code.
   * `nichtparasoup.server.get_image()` no longer responds false `None`.
+* Misc
+  * Tests were restructured and rewritten. Therefore made some functions/methods more testable.
 
 ## 3.0.0a2
 
