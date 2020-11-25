@@ -139,7 +139,7 @@ jobs:
           name: testlogs
           # see `LOGDIR` in `tests/__init__.py`
           path: ${{ env.project-directory }}/tests/.logs/
-          if-no-files-found: error
+          if-no-files-found: warn
       - name: Artifact reports
         if: ${{ always() && ! matrix.no-unit-test }}
         # see https://github.com/actions/upload-artifact
