@@ -97,3 +97,4 @@ def test_crawl_errors() -> None:
     # assert
     sut._crawl.assert_called_once()
     assert len(images) == 0
+    assert len(images) == 1
