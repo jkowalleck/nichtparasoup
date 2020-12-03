@@ -132,6 +132,7 @@ jobs:
           TOX_PARALLEL_NO_SPINNER: 1
           NP_TESTLOG_NAME: ${{ matrix.name }}
       - name: debug
+        if: ${{ always() }}
         run: echo $dbg
         env:
           dbg: ${{ toJson(steps.tests) }}
