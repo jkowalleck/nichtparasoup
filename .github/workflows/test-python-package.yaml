@@ -135,8 +135,8 @@ jobs:
         if: ${{ always() }}
         run: |
           echo $dbg
-          echo val
-          echo eq
+          echo $val
+          echo $eq
         env:
           dbg: ${{ toJson(steps.tests) }}
           val: ${{ steps.tests.outcome }}
