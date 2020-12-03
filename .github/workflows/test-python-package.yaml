@@ -133,9 +133,14 @@ jobs:
           NP_TESTLOG_NAME: ${{ matrix.name }}
       - name: debug
         if: ${{ always() }}
-        run: echo $dbg
+        run: |
+          echo $dbg
+          echo val
+          echo eq
         env:
           dbg: ${{ toJson(steps.tests) }}
+          val: ${{ steps.tests.outcome }}
+          eq: ${{ steps.tests.outcome == 'failure' }}
       - name: publish pytest results
         if: ${{ steps.tests.outcome == 'failure' && ! matrix.no-unit-test }}
         # see https://github.com/mikepenz/action-junit-report
