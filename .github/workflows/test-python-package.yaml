@@ -131,6 +131,10 @@ jobs:
           TOXENV: ${{ matrix.toxenv }}
           TOX_PARALLEL_NO_SPINNER: 1
           NP_TESTLOG_NAME: ${{ matrix.name }}
+      - name: debug
+        run: echo $dbg
+        env:
+          dbg: ${{ toJson(steps.tests) }}
       - name: publish pytest results
         if: ${{ steps.tests.outcome == 'failure' && ! matrix.no-unit-test }}
         # see https://github.com/mikepenz/action-junit-report
